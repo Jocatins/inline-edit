@@ -1,112 +1,21 @@
-import { Component } from '@angular/core';
-import { PageSettingsModel } from '@syncfusion/ej2-angular-grids';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DataStateChangeEventArgs } from '@syncfusion/ej2-angular-grids';
+import { ProductStoreService } from './product-store.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'syncgrid';
-  public pageSettings: PageSettingsModel = { pageSize: 4 };
-  public data: object[] = [
-    {
-      OrderID: 10248,
-      CustomerID: 'VINET',
-      EmployeeID: 5,
-      OrderDate: new Date(8364186e5),
-      ShipName: 'Vins et alcools Chevalier',
-      ShipCity: 'Reims',
-      ShipAddress: '59 rue de l Abbaye',
-      ShipRegion: 'CJ',
-      ShipPostalCode: '51100',
-      ShipCountry: 'France',
-      Freight: 32.38,
-      Verified: !0,
-    },
-    {
-      OrderID: 10249,
-      CustomerID: 'TOMSP',
-      EmployeeID: 6,
-      OrderDate: new Date(836505e6),
-      ShipName: 'Toms Spezialitäten',
-      ShipCity: 'Münster',
-      ShipAddress: 'Luisenstr. 48',
-      ShipRegion: 'CJ',
-      ShipPostalCode: '44087',
-      ShipCountry: 'Germany',
-      Freight: 11.61,
-      Verified: !1,
-    },
-    {
-      OrderID: 10250,
-      CustomerID: 'HANAR',
-      EmployeeID: 4,
-      OrderDate: new Date(8367642e5),
-      ShipName: 'Hanari Carnes',
-      ShipCity: 'Rio de Janeiro',
-      ShipAddress: 'Rua do Paço, 67',
-      ShipRegion: 'RJ',
-      ShipPostalCode: '05454-876',
-      ShipCountry: 'Brazil',
-      Freight: 65.83,
-      Verified: !0,
-    },
-    {
-      OrderID: 10251,
-      CustomerID: 'VICTE',
-      EmployeeID: 3,
-      OrderDate: new Date(8367642e5),
-      ShipName: 'Victuailles en stock',
-      ShipCity: 'Lyon',
-      ShipAddress: '2, rue du Commerce',
-      ShipRegion: 'CJ',
-      ShipPostalCode: '69004',
-      ShipCountry: 'France',
-      Freight: 41.34,
-      Verified: !0,
-    },
-    {
-      OrderID: 10252,
-      CustomerID: 'SUPRD',
-      EmployeeID: 4,
-      OrderDate: new Date(8368506e5),
-      ShipName: 'Suprêmes délices',
-      ShipCity: 'Charleroi',
-      ShipAddress: 'Boulevard Tirou, 255',
-      ShipRegion: 'CJ',
-      ShipPostalCode: 'B-6000',
-      ShipCountry: 'Belgium',
-      Freight: 51.3,
-      Verified: !0,
-    },
-    {
-      OrderID: 10253,
-      CustomerID: 'HANAR',
-      EmployeeID: 3,
-      OrderDate: new Date(836937e6),
-      ShipName: 'Hanari Carnes',
-      ShipCity: 'Rio de Janeiro',
-      ShipAddress: 'Rua do Paço, 67',
-      ShipRegion: 'RJ',
-      ShipPostalCode: '05454-876',
-      ShipCountry: 'Brazil',
-      Freight: 58.17,
-      Verified: !0,
-    },
-    {
-      OrderID: 10254,
-      CustomerID: 'CHOPS',
-      EmployeeID: 5,
-      OrderDate: new Date(8370234e5),
-      ShipName: 'Chop-suey Chinese',
-      ShipCity: 'Bern',
-      ShipAddress: 'Hauptstr. 31',
-      ShipRegion: 'CJ',
-      ShipPostalCode: '3012',
-      ShipCountry: 'Switzerland',
-      Freight: 22.98,
-      Verified: !1,
-    },
-  ];
+  public products: Observable<DataStateChangeEventArgs>;
+  constructor(public productservice: ProductStoreService) {
+    this.products = productservice;
+  }
+  ngOnInit() {
+    const state: any = { skip: 0, take: 5 };
+    this.productservice.execute(state);
+  }
 }

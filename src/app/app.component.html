@@ -1,11 +1,9 @@
-<ejs-grid [dataSource]="data" [allowSorting]="true" 
-[allowGrouping]="true" [allowFiltering]="true" 
-[allowPaging]="true"[pageSettings]="pageSettings">
-  <e-columns>
+<ejs-grid [dataSource]="products | async" >
+  <!-- <e-columns>
     <e-column field="OrderID" headerText="Order ID" isPrimaryKey="true" textAlign="Left"> </e-column>
     <e-column field="CustomerID" headerText="Customer ID"> </e-column>
     <e-column field="ShipCity" headerText="Ship City"> </e-column>
     <e-column field="ShipCountry" headerText="Ship Country"> </e-column>
     <e-column field="ShipPostalCode" headerText="Ship PostalCode"> </e-column>
-  </e-columns>
+  </e-columns> -->
 </ejs-grid>
