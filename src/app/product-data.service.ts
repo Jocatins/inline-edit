@@ -10,7 +10,7 @@ export class ProductDataService implements InMemoryDbService {
   createDb() {
     const products: ProductModel[] = [
       {
-        OrderID: 10248,
+        id: 10248,
         CustomerID: 'VINET',
         EmployeeID: 5,
         OrderDate: new Date(8364186e5),
@@ -24,7 +24,7 @@ export class ProductDataService implements InMemoryDbService {
         Verified: !0,
       },
       {
-        OrderID: 10249,
+        id: 10249,
         CustomerID: 'TOMSP',
         EmployeeID: 6,
         OrderDate: new Date(836505e6),
@@ -38,7 +38,7 @@ export class ProductDataService implements InMemoryDbService {
         Verified: !1,
       },
       {
-        OrderID: 10250,
+        id: 10250,
         CustomerID: 'HANAR',
         EmployeeID: 4,
         OrderDate: new Date(8367642e5),
@@ -52,7 +52,7 @@ export class ProductDataService implements InMemoryDbService {
         Verified: !0,
       },
       {
-        OrderID: 10251,
+        id: 10251,
         CustomerID: 'VICTE',
         EmployeeID: 3,
         OrderDate: new Date(8367642e5),
@@ -66,7 +66,7 @@ export class ProductDataService implements InMemoryDbService {
         Verified: !0,
       },
       {
-        OrderID: 10252,
+        id: 10252,
         CustomerID: 'SUPRD',
         EmployeeID: 4,
         OrderDate: new Date(8368506e5),
@@ -80,7 +80,7 @@ export class ProductDataService implements InMemoryDbService {
         Verified: !0,
       },
       {
-        OrderID: 10253,
+        id: 10253,
         CustomerID: 'HANAR',
         EmployeeID: 3,
         OrderDate: new Date(836937e6),
@@ -94,7 +94,7 @@ export class ProductDataService implements InMemoryDbService {
         Verified: !0,
       },
       {
-        OrderID: 10254,
+        id: 10254,
         CustomerID: 'CHOPS',
         EmployeeID: 5,
         OrderDate: new Date(8370234e5),

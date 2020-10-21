@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { DataStateChangeEventArgs } from '@syncfusion/ej2-grids';
-import { HttpClient } from '@angular/common/http';
+import {
+  DataStateChangeEventArgs,
+  DataSourceChangedEventArgs,
+} from '@syncfusion/ej2-angular-grids';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProductModel } from './product-model';
 import { map } from 'rxjs/operators';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+};
 @Injectable({
   providedIn: 'root',
 })
@@ -28,5 +34,17 @@ export class ProductStoreService extends Subject<DataStateChangeEventArgs> {
           }
       )
     );
+  }
+  addRecord(state: DataSourceChangedEventArgs): Observable<ProductModel> {
+    return this.http.post<ProductModel>(this.apiUrl, state.data, httpOptions);
+  }
+  updateRecord(state: DataSourceChangedEventArgs): Observable<any> {
+    return this.http.put(this.apiUrl, state.data, httpOptions);
+  }
+  deleteRecord(state: DataSourceChangedEventArgs): Observable<ProductModel> {
+    const id = state.data[0].id;
+    const url = `${this.apiUrl}/${id}`;
+
+    return this.http.delete<ProductModel>(url, httpOptions);
   }
 }

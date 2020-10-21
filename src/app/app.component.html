@@ -1,9 +1,12 @@
-<ejs-grid [dataSource]="products | async" >
-  <!-- <e-columns>
-    <e-column field="OrderID" headerText="Order ID" isPrimaryKey="true" textAlign="Left"> </e-column>
+<ejs-grid [dataSource]="products | async" [editSettings]="editSettings" (dataStateChange)="dataStateChange($event)"
+  (dataSourceChanged)="dataSourceChanged($event)" [toolbar]="toolbar">
+  <e-columns>
+    <e-column field="id" headerText="Order ID" isPrimaryKey="true" textAlign="Left">
+    </e-column>
     <e-column field="CustomerID" headerText="Customer ID"> </e-column>
     <e-column field="ShipCity" headerText="Ship City"> </e-column>
     <e-column field="ShipCountry" headerText="Ship Country"> </e-column>
-    <e-column field="ShipPostalCode" headerText="Ship PostalCode"> </e-column>
-  </e-columns> -->
+    <e-column field="ShipPostalCode" headerText="Ship PostalCode">
+    </e-column>
+  </e-columns>
 </ejs-grid>

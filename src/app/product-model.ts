@@ -1,5 +1,5 @@
 export class ProductModel {
-  OrderID: number;
+  id: any;
   CustomerID: string;
   EmployeeID: number;
   OrderDate: any;

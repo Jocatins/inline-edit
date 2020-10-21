@@ -11,6 +11,8 @@ import {
   SortService,
   FilterService,
   GroupService,
+  EditService,
+  ToolbarService,
 } from '@syncfusion/ej2-angular-grids';
 import { ProductDataService } from './product-data.service';
 
@@ -23,7 +25,14 @@ import { ProductDataService } from './product-data.service';
     HttpClientModule,
     InMemoryWebApiModule.forRoot(ProductDataService),
   ],
-  providers: [PageService, SortService, FilterService, GroupService],
+  providers: [
+    PageService,
+    SortService,
+    FilterService,
+    GroupService,
+    EditService,
+    ToolbarService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
