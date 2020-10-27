@@ -15,6 +15,7 @@ import {
   ToolbarService,
 } from '@syncfusion/ej2-angular-grids';
 import { ProductDataService } from './product-data.service';
+import {DateRangePickerModule} from '@syncfusion/ej2-angular-calendars'
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { ProductDataService } from './product-data.service';
     GridModule,
     PagerModule,
     HttpClientModule,
+    DateRangePickerModule,
     InMemoryWebApiModule.forRoot(ProductDataService),
   ],
   providers: [

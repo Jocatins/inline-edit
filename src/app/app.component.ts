@@ -4,19 +4,44 @@ import {
   DataStateChangeEventArgs,
   DataSourceChangedEventArgs,
 } from '@syncfusion/ej2-angular-grids';
-import { EditSettingsModel, ToolbarItems } from '@syncfusion/ej2-angular-grids';
+import { EditSettingsModel, ToolbarItems, SaveEventArgs } from '@syncfusion/ej2-angular-grids';
 import { ProductStoreService } from './product-store.service';
+import { Internationalization} from '@syncfusion/ej2-base'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css'], 
 })
 export class AppComponent implements OnInit {
   title = 'syncgrid';
   public editSettings: EditSettingsModel;
   public toolbar: ToolbarItems[];
   public products: Observable<DataStateChangeEventArgs>;
+  public orderData: object;
+  public val: any;
+  public Intl: Internationalization = new Internationalization()
+
+  actionBegin(args: SaveEventArgs){
+    if(args.requestType === 'beginEdit' || args.requestType === 'add'){
+      this.orderData = Object.assign({},args.rowData);
+    }
+    if(args.requestType === 'save'){
+      const Validity = 'Validity';
+      args.data[Validity] = this.orderData[Validity]
+    }
+  }
+
+  public dateformatter = (value: any) => {
+    let dFormatter: Function = this.Intl.getDateFormat({skeleton: 'y', type: 'date'})
+    return dFormatter(new Date(value))
+  }
+
+  public valueAccess = (field: string, value: object, column : object) => {
+    this.val = this.dateformatter(new Date(value[field][0])) + ' - ' + this.dateformatter(new Date(value[field][1]));
+    return this.val
+  }
+
   constructor(public productservice: ProductStoreService) {
     this.products = productservice;
   }

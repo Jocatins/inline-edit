@@ -22,6 +22,7 @@ export class ProductDataService implements InMemoryDbService {
         ShipCountry: 'France',
         Freight: 32.38,
         Verified: !0,
+        Validity: [new Date(2019,1,2), new Date(2020,2,2)],
       },
       {
         id: 10249,
@@ -36,6 +37,7 @@ export class ProductDataService implements InMemoryDbService {
         ShipCountry: 'Germany',
         Freight: 11.61,
         Verified: !1,
+        Validity: [new Date(2019,1,2), new Date(2020,2,2)],
       },
       {
         id: 10250,
@@ -50,6 +52,7 @@ export class ProductDataService implements InMemoryDbService {
         ShipCountry: 'Brazil',
         Freight: 65.83,
         Verified: !0,
+        Validity: [new Date(2019,1,2), new Date(2020,2,2)],
       },
       {
         id: 10251,
@@ -64,6 +67,7 @@ export class ProductDataService implements InMemoryDbService {
         ShipCountry: 'France',
         Freight: 41.34,
         Verified: !0,
+        Validity: [new Date(2019,1,2), new Date(2020,2,2)],
       },
       {
         id: 10252,
@@ -78,6 +82,7 @@ export class ProductDataService implements InMemoryDbService {
         ShipCountry: 'Belgium',
         Freight: 51.3,
         Verified: !0,
+        Validity: [new Date(2019,1,2), new Date(2020,2,2)],
       },
       {
         id: 10253,
@@ -92,6 +97,7 @@ export class ProductDataService implements InMemoryDbService {
         ShipCountry: 'Brazil',
         Freight: 58.17,
         Verified: !0,
+        Validity: [new Date(2019,1,2), new Date(2020,2,2)],
       },
       {
         id: 10254,
@@ -106,6 +112,7 @@ export class ProductDataService implements InMemoryDbService {
         ShipCountry: 'Switzerland',
         Freight: 22.98,
         Verified: !1,
+        Validity: [new Date(2019,1,2), new Date(2020,2,2)],
       },
     ];
     return { products };

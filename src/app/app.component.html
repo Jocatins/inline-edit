@@ -1,12 +1,21 @@
 <ejs-grid [dataSource]="products | async" [editSettings]="editSettings" (dataStateChange)="dataStateChange($event)"
-  (dataSourceChanged)="dataSourceChanged($event)" [toolbar]="toolbar">
+  (dataSourceChanged)="dataSourceChanged($event)" [toolbar]="toolbar" (actionBegin)="actionBegin($event)">
   <e-columns>
     <e-column field="id" headerText="Order ID" isPrimaryKey="true" textAlign="Left">
     </e-column>
     <e-column field="CustomerID" headerText="Customer ID"> </e-column>
     <e-column field="ShipCity" headerText="Ship City"> </e-column>
     <e-column field="ShipCountry" headerText="Ship Country"> </e-column>
+    <e-column field="Validity" headerText="Validity Period" [valueAccessor]="valueAccess"> 
+    <ng-template #editTemplate>
+      <ejs-daterangepicker [(value)]="orderData.Validity" [format]="dd/MM/yyyy">
+      
+      </ejs-daterangepicker>
+    </ng-template>
+     </e-column>
     <e-column field="ShipPostalCode" headerText="Ship PostalCode">
+
     </e-column>
+    <e-column field="ShipCountry" headerText="Ship Country"> </e-column>
   </e-columns>
 </ejs-grid>

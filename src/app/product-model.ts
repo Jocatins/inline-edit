@@ -11,4 +11,5 @@ export class ProductModel {
   ShipCountry: string;
   Freight: number;
   Verified: any;
+  Validity: any;
 }

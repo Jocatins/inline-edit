@@ -24,6 +24,8 @@ export class ProductStoreService extends Subject<DataStateChangeEventArgs> {
       super.next(x as DataStateChangeEventArgs)
     );
   }
+
+  // ---------------------- CRUD OPERATIONS -----------------------------------------
   getProducts(state?: any): Observable<any[]> {
     return this.http.get<ProductModel[]>(this.apiUrl).pipe(
       map(
